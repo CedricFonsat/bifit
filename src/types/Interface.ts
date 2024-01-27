@@ -26,12 +26,15 @@ export interface TypeState {
 
 type RootStackParamList = {
   Home: undefined;
-  Details: { itemId: string };
+  Onboard: undefined;
+ // Details: { itemId: string };
   // ... autres écrans
 };
 
-export type YourNavigatorParams = StackNavigationProp<
-  RootStackParamList,
-  'Home',
-  'Onboard'
->;
+export type YourNavigatorParams = StackNavigationProp<RootStackParamList>;
+
+// export type YourNavigatorParams = StackNavigationProp<
+//   RootStackParamList,
+//   'Home',
+//   'Onboard'
+// >;

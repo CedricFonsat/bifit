@@ -2,9 +2,9 @@ export const onboardFakeData = [
     {
         id: 1,
         name: 'Jack Line',
-        size: 160,
+        size: 170,
         gender: 'woman',
-        weight: 60,
+        weight: 70,
         age: 20
     }
 ]

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Bifit",
-    "slug": "Bifit",
+    "slug": "bifit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,6 +29,12 @@
     },
     "plugins": [
       "react-native-health"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bd4e4a7d-469d-4848-9fa8-175470aed752"
+      }
+    },
+    "owner": "calvmite"
   }
 }
