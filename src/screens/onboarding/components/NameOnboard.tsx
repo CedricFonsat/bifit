@@ -3,11 +3,11 @@ import { Text, TextInput, View } from "react-native";
 import { SIZE } from "../../../constants/size";
 import { COLOR } from "../../../constants/color";
 
-export const AgeOnboard = ({value, onChangeText, name}: any) => {
-    const ageInputRef = useRef(null);
+export const NameOnboard = ({value, onChangeText}: any) => {
+    const nameInputRef = useRef(null);
   
     useEffect(() => {
-      ageInputRef.current?.focus();
+        nameInputRef.current?.focus();
     }, []);
   
     // const handleChange = (text: string) => {
@@ -24,16 +24,15 @@ export const AgeOnboard = ({value, onChangeText, name}: any) => {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <Text style={{marginBottom: SIZE.M100}}>Quel est votre age {name} ?</Text>
+        <Text style={{marginBottom: SIZE.M100}}>Quel est votre nom ?</Text>
         <View style={{
           width: '100%',
           flexDirection: 'row',
           justifyContent: 'space-around'
         }}>
         <TextInput 
-         ref={ageInputRef}
+         ref={nameInputRef}
          placeholder="Entre votre age"
-         keyboardType="numeric"
          value={value}
          onChangeText={onChangeText}
         />

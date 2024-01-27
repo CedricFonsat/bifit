@@ -9,7 +9,7 @@ export const GenderOnboard = ({ valueMan, valueWoman, onChangeWoman, onChangeMan
     return (
       <View style={{
         width: SIZE.M100 * 3,
-        height:SIZE.height,
+        height:SIZE.height / 2,
         backgroundColor: COLOR.orange,
         justifyContent: 'center',
         alignItems: 'center'

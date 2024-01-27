@@ -1,7 +1,7 @@
 import { KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { TypeState } from '../../types/Interface';
+import { TypeState, YourNavigatorParams } from '../../types/Interface';
 import { updateOnboard } from '../../store/OnboardReducer';
 import { SIZE } from '../../constants/size';
 import { COLOR } from '../../constants/color';
@@ -9,9 +9,12 @@ import { SizeOnboard } from './components/SizeOnboard';
 import { WeightOnboard } from './components/WeightOnboard';
 import { AgeOnboard } from './components/AgeOnboard';
 import { GenderOnboard } from './components/GenderOnboard';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { NameOnboard } from './components/NameOnboard';
 
 const OnboardScreen = () => {
 
+    const navigation: NavigationProp<YourNavigatorParams> = useNavigation()
     const onboard = useSelector((state: TypeState) => state.onboard);
     const dispatch = useDispatch();
     const [step, setStep] = useState(0);
@@ -60,10 +63,11 @@ const OnboardScreen = () => {
   };
 
     const data = [
-        {screen: 1, content: <SizeOnboard value={size} onChangeText={(text: string) => setSize(text)} name={name}/>},
-        {screen: 2, content: <WeightOnboard value={weight} onChangeText={(text: string) => setWeight(text)} name={name}/>},
-        {screen: 3, content: <AgeOnboard value={age} onChangeText={(text: string) => setAge(text)} name={name}/>},
-        {screen: 4, content: <GenderOnboard 
+        {screen: 1, content: <NameOnboard value={name} onChangeText={(text: string) => setName(text)}/>},
+        {screen: 2, content: <SizeOnboard value={size} onChangeText={(text: string) => setSize(text)} name={name}/>},
+        {screen: 3, content: <WeightOnboard value={weight} onChangeText={(text: string) => setWeight(text)} name={name}/>},
+        {screen: 4, content: <AgeOnboard value={age} onChangeText={(text: string) => setAge(text)} name={name}/>},
+        {screen: 5, content: <GenderOnboard 
         valueWoman={gender.woman} 
         valueMan={gender.man} 
         onChangeWoman={() => handleChangeGender('woman')}
@@ -102,7 +106,7 @@ const OnboardScreen = () => {
 
         <TouchableOpacity 
         onPress={() => {
-          (data.length - 1) === step ? console.log('fin') : setStep(step + 1);
+          (data.length - 1) === step ? navigation.navigate('Home') : setStep(step + 1);
           handleUpdate();
         }}
         style={{
